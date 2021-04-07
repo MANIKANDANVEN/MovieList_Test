@@ -9,6 +9,7 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController {
     
+
     var selectedMovieTitle: String!
     var selectedRating: String!
     var selectedReleaseDate: String!

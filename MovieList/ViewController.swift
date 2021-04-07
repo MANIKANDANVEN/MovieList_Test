@@ -29,14 +29,17 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
         getDataFromJSON();
         
+        // Collection View Source Initailize
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.register(UINib(nibName: "MoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieListCell");
         
+        // Button round edges
         refreshButton.layer.cornerRadius = 15   
        
     }
         
+    // Getting data from JSON File
     func getDataFromJSON(){
         let url = Bundle.main.url(forResource: "movies", withExtension: "json")!
         let data = try! Data(contentsOf: url)
@@ -108,16 +111,19 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
     }
 
+    // Collection View number of items in the selection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return countData;
         }
     
     
+    // Collection View Cell's Layout
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
             let cellWidth = collectionView.frame.size.width
         return CGSize(width: cellWidth, height: cellWidth*0.8)
         }
     
+    // Collection View function for selecting
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
@@ -136,7 +142,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
     }
     
-    
+    // Collection View function for allocating data to the indexpath.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieListCell", for: indexPath) as! MoviesCollectionViewCell;
 
@@ -169,7 +175,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     
     
     
-    // Segue function to pass data
+    // Segue function to pass data to another viewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MovieDetailsViewController
         {
