@@ -63,24 +63,20 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
                             let Link = anItem["imageHref"] as? String ?? "https://banner2.cleanpng.com/20180402/gdw/kisspng-null-pointer-symbol-computer-icons-pi-5ac1c0964f62d5.3135633215226471903252.jpg"
                         
                         imageHrefLink.append(Link)
-                        
-                        
+       
                 }
             
                 // Getting Image From URL
                 for items in imageHrefLink{
                 
                     let url = URL(string: items)!
-                
-                    
-                   
-                        if let data = try? Data(contentsOf: url) {
+  
+                    if let data = try? Data(contentsOf: url) {
                             DispatchQueue.main.async() { [weak self] in
                                 self!.imageDownloaded.append(UIImage(data: data)!)
                             }
                             
-                        }
-                    
+                    }
 
                 }
             
@@ -99,15 +95,9 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
                         releaseDateList.append(releaseDataList!)
                     }
-            
-            
-            
-                
-            
-            
+        
         }
         countData = movieTitle.count
-        
         
     }
 
