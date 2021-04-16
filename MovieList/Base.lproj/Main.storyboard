@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -12,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,12 +88,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTx-zx-NDC">
-                                <rect key="frame" x="354" y="10" width="50" height="50"/>
+                                <rect key="frame" x="354" y="30" width="50" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Ujf-nE-P9x"/>
-                                    <constraint firstAttribute="width" constant="50" id="x2d-an-1lu"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="dU9-1c-frk"/>
                                 </constraints>
-                                <state key="normal" image="xmark" catalog="system"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Oef-x4-B0w"/>
                                 </connections>
@@ -166,18 +170,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RUR-EN-f3T" firstAttribute="top" secondItem="g9C-bZ-WFO" secondAttribute="top" constant="50" id="1QQ-b2-nqv"/>
-                            <constraint firstItem="g9C-bZ-WFO" firstAttribute="trailing" secondItem="GTx-zx-NDC" secondAttribute="trailing" constant="10" id="AaD-ly-dX3"/>
                             <constraint firstItem="heT-kP-WcJ" firstAttribute="top" secondItem="ZCL-cL-8ze" secondAttribute="bottom" constant="5" id="Bmg-y1-cer"/>
+                            <constraint firstItem="GTx-zx-NDC" firstAttribute="leading" secondItem="RUR-EN-f3T" secondAttribute="trailing" constant="78" id="FTg-IX-QOv"/>
+                            <constraint firstItem="g9C-bZ-WFO" firstAttribute="bottom" secondItem="GTx-zx-NDC" secondAttribute="bottom" constant="748" id="NXs-xr-uho"/>
+                            <constraint firstItem="g9C-bZ-WFO" firstAttribute="trailing" secondItem="GTx-zx-NDC" secondAttribute="trailing" constant="10" id="QEd-Jx-wba"/>
                             <constraint firstItem="RUR-EN-f3T" firstAttribute="centerX" secondItem="QIA-bn-RD7" secondAttribute="centerX" id="QvY-XK-XVF"/>
                             <constraint firstItem="ZCL-cL-8ze" firstAttribute="top" secondItem="Lmr-0x-291" secondAttribute="bottom" constant="5" id="ehf-BB-frO"/>
                             <constraint firstItem="heT-kP-WcJ" firstAttribute="centerX" secondItem="QIA-bn-RD7" secondAttribute="centerX" id="f2g-mx-iyh"/>
                             <constraint firstItem="Lmr-0x-291" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RUR-EN-f3T" secondAttribute="bottom" constant="50" id="fGN-xx-MDQ"/>
                             <constraint firstItem="Lmr-0x-291" firstAttribute="centerX" secondItem="QIA-bn-RD7" secondAttribute="centerX" id="fog-98-7fo"/>
                             <constraint firstItem="oWH-UL-JJ3" firstAttribute="centerX" secondItem="QIA-bn-RD7" secondAttribute="centerX" id="hgC-bu-owD"/>
+                            <constraint firstItem="GTx-zx-NDC" firstAttribute="top" secondItem="g9C-bZ-WFO" secondAttribute="top" constant="30" id="hhx-3h-0ju"/>
                             <constraint firstItem="ZCL-cL-8ze" firstAttribute="centerX" secondItem="QIA-bn-RD7" secondAttribute="centerX" id="jJv-A9-ztZ"/>
                             <constraint firstItem="Lmr-0x-291" firstAttribute="centerY" secondItem="QIA-bn-RD7" secondAttribute="centerY" id="p7Y-sD-Dsj"/>
                             <constraint firstItem="oWH-UL-JJ3" firstAttribute="top" secondItem="heT-kP-WcJ" secondAttribute="bottom" constant="5" id="q03-E8-e1z"/>
-                            <constraint firstItem="GTx-zx-NDC" firstAttribute="top" secondItem="g9C-bZ-WFO" secondAttribute="top" constant="10" id="vHX-wZ-vm3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -193,7 +199,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

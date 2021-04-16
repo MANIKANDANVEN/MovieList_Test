@@ -151,9 +151,9 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     
     
     // Async Image download function
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
+    //func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+       // URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    //}
     
     // Referesh Collection View Data
     @IBAction func refereshFunction(_ sender: Any) {

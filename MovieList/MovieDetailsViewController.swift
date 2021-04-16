@@ -31,10 +31,12 @@ class MovieDetailsViewController: UIViewController {
         movieReleaseDate.text = selectedReleaseDate
         movieImage.image = selectedImage
         
+        movieImage.layer.cornerRadius = 15
         
         
     }
     
+  
 
     /*
     // MARK: - Navigation
