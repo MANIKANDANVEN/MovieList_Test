@@ -13,6 +13,7 @@ class MovieListTests: XCTestCase {
     var controller: ViewController = ViewController()
     var window: UIWindow!
     var Mov: ViewController!
+    var MovDet: MovieDetailsViewController!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,23 +22,26 @@ class MovieListTests: XCTestCase {
         
         window = UIWindow()
         Mov = (storyboard.instantiateViewController(withIdentifier: "MainViewController") as! ViewController)
+       
+        
+        MovDet = storyboard.instantiateViewController(withIdentifier: "movieDetailsS") as? MovieDetailsViewController
+        MovDet.loadViewIfNeeded()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        MovDet = nil
+       
     }
 
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         controller.getDataFromJSON()
+        
     }
     
-    func loadView()
-      {
-        window.addSubview(Mov.view)
-        RunLoop.current.run(until: Date())
-      }
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

@@ -35,7 +35,9 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         collectionView.register(UINib(nibName: "MoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieListCell");
         
         // Button round edges
-        refreshButton.layer.cornerRadius = 15   
+        refreshButton.layer.cornerRadius = 15
+        refreshButton.addTarget(self, action: #selector(refreshButtonAction), for: .touchUpInside)
+        
        
     }
         
@@ -155,13 +157,11 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
        // URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     //}
     
-    // Referesh Collection View Data
-    @IBAction func refereshFunction(_ sender: Any) {
-        
-        collectionView.reloadData()
-        
-    }
     
+    
+    @objc func refreshButtonAction(sender: UIButton!) {
+        collectionView.reloadData()
+    }
     
     
     

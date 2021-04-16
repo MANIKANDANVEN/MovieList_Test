@@ -26,15 +26,18 @@ class MovieDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        movieTitle.text = selectedMovieTitle
-        movieRating.text = selectedRating
-        movieReleaseDate.text = selectedReleaseDate
-        movieImage.image = selectedImage
+        
+        movieTitle.text = selectedMovieTitle ?? "None"
+        movieRating.text = selectedRating ?? "None"
+        movieReleaseDate.text = selectedReleaseDate ?? "None"
+        movieImage.image = selectedImage ?? UIImage(named:"DownArrowColor.png")
         
         movieImage.layer.cornerRadius = 15
         
         
     }
+    
+    
     
   
 
